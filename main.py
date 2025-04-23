@@ -11,7 +11,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Couleurs
 BACKGROUND_COLOR = (0, 0, 0)
-CIRCLE_COLORS = [(255, 0, 0)]  # Liste des couleurs des cercles
+CIRCLE_COLORS = [(255, 0, 0)]  
 TEXT_COLOR = (250, 250, 250)
 
 # Variables de suivi
@@ -22,9 +22,9 @@ total_circles = 0
 circle_spawn_time = None
 circle_position = None
 circle_radius = 15
-min_time_between_circles = 0.5  # en secondes
-max_time_between_circles = 1.5  # en secondes
-game_duration = 60  # Durée du jeu en secondes
+min_time_between_circles = 0.5  
+max_time_between_circles = 1.5  
+game_duration = 60  
 
 # Horloge pour contrôler les FPS
 clock = pygame.time.Clock()
@@ -85,7 +85,7 @@ while running and (time.time() - start_time) < game_duration:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            total_clicks += 1  # Incrémenter pour chaque clic
+            total_clicks += 1  
             if circle_position:
                 mouse_pos = pygame.mouse.get_pos()
                 distance = pygame.math.Vector2(circle_position).distance_to(mouse_pos)
@@ -93,8 +93,8 @@ while running and (time.time() - start_time) < game_duration:
                     click_time = time.time() - circle_spawn_time
                     click_times.append(click_time)
                     successful_clicks += 1
-                    circle_position = None  # Réinitialiser la position pour éviter les clics multiples
-                    screen.fill(BACKGROUND_COLOR)  # Efface le cercle
+                    circle_position = None 
+                    screen.fill(BACKGROUND_COLOR) 
 
     # Afficher un nouveau cercle après un délai aléatoire
     if not circle_position and (time.time() - last_circle_time) > time_to_next_circle:
